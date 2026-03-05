@@ -62,13 +62,36 @@ code{ background:#f3f3f3; padding:2px 6px; border-radius:8px; }
   gap:14px;
   padding:12px 0;
 }
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  min-width: 0;
+}
+.brand__logo{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  object-fit:contain;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.brand__text{ min-width:0; }
 .brand__name{
   font-weight:700;
   letter-spacing:.2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .brand__tag{
   font-size:12px;
   color:var(--muted);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .menu{
@@ -215,6 +238,9 @@ h2{
   display:grid;
   gap:16px;
 }
+.grid.one{
+  grid-template-columns: 1fr;
+}
 .grid.two{
   grid-template-columns: 1fr;
 }
@@ -242,23 +268,6 @@ h2{
   padding-left:18px;
 }
 .list li{ margin: 6px 0; }
-
-.timeline{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-.timeline li{
-  padding:10px 0;
-  border-top:1px dashed #e8e8e8;
-}
-.timeline li:first-child{ border-top:none; }
-.timeline span{
-  display:inline-block;
-  min-width:52px;
-  color:var(--muted);
-  font-weight:600;
-}
 
 .note{
   margin:10px 0 0;
@@ -299,39 +308,25 @@ h2{
 }
 .callout h3{ margin:0 0 8px; font-size:16px; }
 
-.accordion details{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius: var(--radius);
-  padding:0;
-  overflow:hidden;
-}
-.accordion details + details{ margin-top:12px; }
-.accordion summary{
-  cursor:pointer;
-  list-style:none;
-  padding:14px 16px;
+.link{ text-decoration: underline; text-underline-offset: 3px; }
+
+.casehead{
   display:flex;
   align-items:center;
   gap:10px;
-  border-bottom:1px solid var(--line);
+  margin-bottom: 10px;
 }
-.accordion summary::-webkit-details-marker{ display:none; }
 .badge{
   font-size:12px;
   padding:3px 10px;
   border:1px solid #111;
   border-radius:999px;
+  white-space:nowrap;
 }
-.sum__title{ font-weight:700; }
-.acc__body{
-  padding:14px 16px 16px;
-}
-.acc__body h4{
-  margin:0 0 8px;
+h4{
+  margin: 8px 0;
   font-size:14px;
 }
-.link{ text-decoration: underline; text-underline-offset: 3px; }
 
 .footer{
   margin-top:22px;
