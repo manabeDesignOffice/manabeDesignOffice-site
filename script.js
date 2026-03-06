@@ -1,15 +1,13 @@
-// Hamburger menu (mobile) + close on link click
 (() => {
   const hamburger = document.getElementById('hamburger');
   const menuDesktop = document.getElementById('menu');
 
-  // Create a drawer menu for mobile from the same links
   const drawer = menuDesktop.cloneNode(true);
   drawer.classList.remove('menu');
   drawer.classList.add('menu--drawer');
   drawer.id = 'menuDrawer';
   drawer.setAttribute('aria-hidden', 'true');
-  hamburger.insertAdjacentElement('afterend', drawer);
+  hamburger.insertAdjacentElement('beforebegin', drawer);
 
   function setOpen(open){
     hamburger.setAttribute('aria-expanded', String(open));
@@ -31,7 +29,6 @@
     if (!isClickInside) setOpen(false);
   });
 
-  // year
   const y = document.getElementById('y');
   if (y) y.textContent = new Date().getFullYear();
 })();

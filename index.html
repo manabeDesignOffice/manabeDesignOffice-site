@@ -20,11 +20,9 @@
         </div>
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false" aria-controls="menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="spacer" aria-hidden="true"></div>
 
-      <nav id="menu" class="menu" aria-hidden="true">
+      <nav id="menu" class="menu" aria-hidden="false">
         <a href="#about">会社紹介</a>
         <a href="#concept">コンセプト</a>
         <a href="#services">事業</a>
@@ -32,6 +30,10 @@
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false" aria-controls="menuDrawer">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -53,8 +55,6 @@
           <div class="pill"><span class="pill__k">代表</span><span class="pill__v">眞鍋 恭平</span></div>
           <div class="pill"><span class="pill__k">ツール</span><span class="pill__v">FreeCAD / KiCAD</span></div>
         </div>
-
-        <!-- <p class="note">※ロゴ画像は <code>logo.png</code> をリポジトリ直下に置くと表示されます。</p> -->
       </div>
     </section>
 
@@ -106,7 +106,7 @@
         </div>
 
         <div class="quote">
-          <div class="quote__mark"></div>
+          <div class="quote__mark">“</div>
           <div class="quote__body">
             <p class="quote__title">百折不撓</p>
             <p class="quote__text">どんな困難にもあきらめず、最後まで志を貫くこと。技術課題に真正面から向き合い、最後まで解決にむけて伴走します。</p>
@@ -163,7 +163,7 @@
       <div class="container">
         <div class="section__head">
           <h2>想定支援ケース</h2>
-          <!-- <p class="section__sub">全ケースを表示しています</p> -->
+          <p class="section__sub">全ケースを表示しています</p>
         </div>
 
         <div class="grid one">
@@ -239,25 +239,25 @@
       </div>
     </section>
 
-<section id="news" class="section">
-  <div class="container">
-    <div class="section__head">
-      <h2>News</h2>
-      <p class="section__sub">最新のX投稿</p>
-    </div>
-    <div class="card">
-      <a class="twitter-timeline"
-         data-width="100%"
-         data-height="600"
-         data-theme="light"
-         data-chrome="noheader nofooter noborders"
-         href="https://twitter.com/M_D_O_2026">
-      </a>
-    </div>
-  </div>
-</section>
+    <section id="news" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>News</h2>
+          <p class="section__sub">最新のX投稿</p>
+        </div>
 
-<script async src="https://platform.twitter.com/widgets.js"></script>
+        <div class="card">
+          <a class="twitter-timeline"
+             data-width="100%"
+             data-height="600"
+             data-theme="light"
+             data-chrome="noheader nofooter noborders"
+             href="https://twitter.com/M_D_O_2026?ref_src=twsrc%5Etfw">
+             Tweets by M_D_O_2026
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section id="contact" class="section section--alt">
       <div class="container">
@@ -283,7 +283,7 @@
               <li>Email：<a class="link" href="mailto:manabedesign.0000@outlook.jp">manabedesign.0000@outlook.jp</a></li>
               <li>X：<a class="link" href="https://twitter.com/M_D_O_2026" target="_blank" rel="noopener">@M_D_O_2026</a></li>
             </ul>
-            <!-- <p class="note">※所在地は記載していません。</p> -->
+            <p class="note">※所在地は記載していません。</p>
           </div>
         </div>
 
@@ -294,6 +294,7 @@
     </section>
   </main>
 
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script src="script.js"></script>
 </body>
 </html>
