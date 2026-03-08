@@ -16,12 +16,9 @@ function fetchText(url) {
       },
       (res) => {
         // リダイレクト対応
-        if (
-          res.statusCode >= 300 &&
-          res.statusCode < 400 &&
-          res.headers.location
-        ) {
-          return resolve(fetchText(res.headers.location));
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          const redirectedUrl = new URL(res.headers.location, url).toString();
+          return resolve(fetchText(redirectedUrl));
         }
 
         if (res.statusCode !== 200) {
@@ -31,7 +28,9 @@ function fetchText(url) {
         }
 
         let data = "";
-        res.on("data", (chunk) => (data += chunk));
+        res.on("data", (chunk) => {
+          data += chunk;
+        });
         res.on("end", () => resolve(data));
       }
     ).on("error", reject);
@@ -49,7 +48,7 @@ function fetchText(url) {
     const news = normalized.slice(0, 3).map((item) => ({
       title: item.title,
       link: item.link,
-      date: new Date(item.pubDate).toISOString().slice(0, 10),
+      date: new Date(item.pubDate).toISOString().slice(0, 10)
     }));
 
     fs.writeFileSync("news.json", JSON.stringify(news, null, 2), "utf-8");
