@@ -285,6 +285,7 @@
   </main>
 
   <script src="script.js"></script>
+  <!--
   <script>
     fetch("./news.json")
       .then(res => res.json())
@@ -307,5 +308,36 @@
           `<p><a href="https://note.com/manabedesign2026" target="_blank" rel="noopener noreferrer">noteの記事一覧を見る</a></p>`;
       });
   </script>
+  -->
+  <script>
+  fetch("./news.json")
+    .then(res => res.json())
+    .then(items => {
+      const latest = items.slice(0, 3);
+
+      const html = latest.map(item => `
+        <article class="news-item">
+          ${item.image ? `
+            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="news-thumb-link">
+              <img src="${item.image}" alt="${item.title}" class="news-thumb">
+            </a>
+          ` : ""}
+
+          <h3 class="news-title">
+            <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+          </h3>
+          <p class="news-date">${item.date}</p>
+        </article>
+      `).join("");
+
+      document.getElementById("note-news").innerHTML =
+        html || `<p><a href="https://note.com/manabedesign2026" target="_blank" rel="noopener noreferrer">noteの記事一覧を見る</a></p>`;
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("note-news").innerHTML =
+        `<p><a href="https://note.com/manabedesign2026" target="_blank" rel="noopener noreferrer">noteの記事一覧を見る</a></p>`;
+    });
+</script>
 </body>
 </html>
