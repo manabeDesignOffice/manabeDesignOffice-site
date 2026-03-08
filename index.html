@@ -285,27 +285,27 @@
   </main>
 
   <script src="script.js"></script>
-</body>
   <script>
-    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://note.com/manabedesign2026/rss")
+    fetch("./news.json")
       .then(res => res.json())
-      .then(data => {
-        if (!data.items || data.items.length === 0) {
-          throw new Error("記事がありません");
-        }
-        const sorted = data.items.sort((a,b)=>{
-          return new Date(b.pubDate) - new Date(a.pubDate);
-        });
-        const latest = sorted.slice(0,3);
-        const html = latest.map(item => `<article class="news-item">
+      .then(items => {
+        const latest = items.slice(0, 3);
+        const html = latest.map(item => `
+        <article class="news-item">
         <h3 class="news-title">
         <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
         </h3>
-        <p class="news-date">${item.pubDate.substring(0,10)}</p>
-        </article>`).join("");
-        document.getElementById("note-news").innerHTML = html;
-      }).catch(err=>{
+        <p class="news-date">${item.date}</p>
+        </article>
+        `).join("");
+        document.getElementById("note-news").innerHTML =
+          html || `<p><a href="https://note.com/manabedesign2026" target="_blank" rel="noopener noreferrer">noteの記事一覧を見る</a></p>`;
+      })
+      .catch(err => {
         console.error(err);
+        document.getElementById("note-news").innerHTML =
+          `<p><a href="https://note.com/manabedesign2026" target="_blank" rel="noopener noreferrer">noteの記事一覧を見る</a></p>`;
       });
   </script>
+</body>
 </html>
