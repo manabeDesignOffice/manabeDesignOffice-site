@@ -244,14 +244,6 @@
           <p class="section__sub">最新のnote投稿</p>
         </div>
         <div id="note-news"></div>
-        <script>
-          fetch("https://api.rss2json.com/v1/api.json?rss_url=https://note.com/manabedesign2026/rss")
-            .then(res => res.json())
-            .then(data => {
-              const item = data.items[0];
-              document.getElementById("note-news").innerHTML =`<a href="${item.link}" target="_blank">${item.title}</a>`;
-            });
-        </script>
       </div>
     </section>
 
@@ -289,5 +281,13 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://note.com/manabedesign2026/rss")
+      .then(res => res.json())
+      .then(data => {
+        const item = data.items[0];
+        document.getElementById("note-news").innerHTML =`<a href="${item.link}" target="_blank">${item.title}</a>`;
+      });
+  </script>
 </body>
 </html>
