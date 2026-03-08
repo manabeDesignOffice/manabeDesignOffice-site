@@ -236,16 +236,58 @@
         </div>
       </div>
     </section>
-
+    
     <section id="news" class="section">
       <div class="container">
         <div class="section__head">
           <h2>News</h2>
           <p class="section__sub">最新のnote投稿</p>
         </div>
-        <div id="note-news"></div>
+        <div id="note-news" class="news-card">
+          <p class="news-loading">読み込み中...</p>
+        </div>
+        <div class="news-more">
+          <a href="https://note.com/manabedesign2026" target="_blank" rel="noopener noreferrer">
+            noteの記事一覧を見る →
+          </a>
+        </div>
       </div>
     </section>
+    <script>
+      fetch("https://api.rss2json.com/v1/api.json?rss_url=https://note.com/manabedesign2026/rss")
+        .then(res => {
+          if (!res.ok) {
+            throw new Error("RSS取得失敗");
+          }
+          return res.json();
+        })
+        .then(data => {
+          if (!data.items || data.items.length === 0) {
+            throw new Error("記事なし");
+          }
+          const item = data.items[0];
+          document.getElementById("note-news").innerHTML = `
+          <article class="news-item">
+          <h3 class="news-title">
+          <a href="${item.link}" target="_blank" rel="noopener noreferrer">
+          ${item.title}
+          </a>
+          </h3>
+          <p class="news-date">${item.pubDate.substring(0,10)}</p>
+          </article>`;
+        })
+        .catch(err => {
+          console.error(err);
+          document.getElementById("note-news").innerHTML = `
+          <article class="news-item">
+          <h3 class="news-title">
+          <a href="https://note.com/manabedesign2026" target="_blank" rel="noopener noreferrer">
+          noteの記事を見る
+          </a>
+          </h3>
+          </article>`;
+        });
+    </script>
 
     <section id="contact" class="section section--alt">
       <div class="container">
