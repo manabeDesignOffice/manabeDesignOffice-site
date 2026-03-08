@@ -98,3 +98,12 @@ h2{ margin:0 0 6px; font-size:22px; }
 .badge{ font-size:12px; padding:3px 10px; border:1px solid #111; border-radius:999px; white-space:nowrap; }
 h4{ margin:8px 0; font-size:14px; }
 .footer{ margin-top:22px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); }
+
+#note-news{ display:grid; gap:16px;}
+.news-item{ display:grid; gap:10px;}
+.news-thumb-link{ display:block; text-decoration:none;}
+.news-thumb{ display:block; width:100%; max-width:420px; height:auto; border-radius:12px; border:1px solid var(--line);}
+.news-title{ margin:0; font-size:16px;}
+.news-title a{ text-decoration:none;}
+.news-title a:hover{ text-decoration:underline;}
+.news-date{ margin:0; font-size:13px; color:var(--muted);}
