@@ -107,4 +107,4 @@ h4{ margin:8px 0; font-size:14px; }
 .news-title a{ text-decoration:none;}
 .news-title a:hover{ text-decoration:underline;}
 .news-date{ margin:0; font-size:13px; color:var(--muted);}
-.card li { white-space: nowrap;}
+.card li { white-space: nowrap; overflow-x: auto;}
