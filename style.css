@@ -74,10 +74,7 @@ h2{ margin:0 0 6px; font-size:22px; }
 
 .grid{ display:grid; gap:16px; }
 .grid.one,.grid.two,.grid.three{ grid-template-columns:1fr; }
-@media (min-width: 900px){
-  .grid.two{ grid-template-columns: 1fr 1fr; }
-  .grid.three{ grid-template-columns: 1fr 1fr 1fr; }
-}
+@media (min-width: 900px){ .grid.two{ grid-template-columns: 1fr 1fr; } .grid.three{ grid-template-columns: 1fr 1fr 1fr; }}
 
 .card{ background:var(--card); border:1px solid var(--line); border-radius: var(--radius); padding:16px; }
 .card h3{ margin:0 0 10px; font-size:16px; }
@@ -107,4 +104,3 @@ h4{ margin:8px 0; font-size:14px; }
 .news-title a{ text-decoration:none;}
 .news-title a:hover{ text-decoration:underline;}
 .news-date{ margin:0; font-size:13px; color:var(--muted);}
-.card li { white-space: nowrap; overflow-x: auto;}
