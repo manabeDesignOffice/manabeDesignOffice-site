@@ -314,13 +314,7 @@
     .then(items => {
       const latest = items.slice(0, 3);
 
-      const html = latest.map(item => `
-        <article class="news-item">
-          ${item.image ? `
-            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="news-thumb-link">
-              <img src="${item.image}" alt="${item.title}" class="news-thumb">
-            </a>
-          ` : ""}
+
 
           <h3 class="news-title">
             <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
