@@ -308,14 +308,14 @@
       });
   </script>
   -->
-  <script>
+<script>
   fetch("./news.json")
     .then(res => res.json())
     .then(items => {
       const latest = items.slice(0, 3);
 
-
-
+      const html = latest.map(item => `
+        <article class="news-item">
           <h3 class="news-title">
             <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
           </h3>
