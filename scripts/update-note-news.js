@@ -54,7 +54,7 @@ function extractImage(description) {
       title: item.title,
       link: item.link,
       date: new Date(item.pubDate).toISOString().slice(0, 10),
-      image: extractImage(item.description || "")
+      //image: extractImage(item.description || "")
     }));
 
     fs.writeFileSync("news.json", JSON.stringify(news, null, 2), "utf-8");
