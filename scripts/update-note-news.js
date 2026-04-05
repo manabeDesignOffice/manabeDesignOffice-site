@@ -36,11 +36,11 @@ function fetchText(url) {
   });
 }
 
-function extractImage(description) {
+/*function extractImage(description) {
   if (!description) return "";
   const match = description.match(/<img[^>]+src="([^"]+)"/i);
   return match ? match[1] : "";
-}
+}*/
 
 (async () => {
   try {
